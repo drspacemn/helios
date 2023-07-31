@@ -32,6 +32,9 @@ hyper.workspace = true
 common = { path = "../common" }
 consensus = { path = "../consensus" }
 
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+tokio = { workspace = "1", features = ["macros", "sync", "rt"] }
+
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 openssl.workspace = true
 tokio.workspace = true
